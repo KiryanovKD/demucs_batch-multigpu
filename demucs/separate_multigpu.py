@@ -189,7 +189,8 @@ def main(opts=None):
         b_sources = apply_model(model, batch.to(args.device), device=args.device, shifts=args.shifts,
                             split=args.split, overlap=args.overlap, progress=True,
                             num_workers=args.jobs, segment=args.segment)
-                    
+
+        other_stem = None
         for k, sources in enumerate(list(b_sources)):
             sources *= stds[k]
             sources += means[k]
